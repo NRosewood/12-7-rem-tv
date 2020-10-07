@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2b7197">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>РЕМTV — Ремонт телевизоров с выездом</title>
+  <link href="./assets/css/vendor.style.css" rel="stylesheet"><link href="./assets/css/style.css" rel="stylesheet"></head>
+  <body>
+    <!-- BEGIN MODALS -->
+    <div class="modal fade" id="callback" tabindex="-1" role="dialog" aria-labelledby="callbackLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+    <div class="modal-content">
+      
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      <div class="modal-wrap">
+        <div class="modal-header">
+          <h5 class="modal-title" id="callbackLabel">
+            Оставьте заявку и мы свяжемся
+            с Вами <span class="blue">в течение 3-х минут!</span>
+          </h5>
+        </div>
+        <div class="modal-body">
+          <form>
+            <span>
+              <input type="hidden" name="formname" value="">
+            </span>
+            <span class="form-control-wrap">
+              <input type="text" class="form-control" placeholder="Ваше имя" name="fullname">
+            </span>
+            <span class="form-control-wrap">
+              <input type="tel" class="form-control mask-phone" placeholder="Ваш телефон" name="phone" required>
+            </span>
+            <button type="submit" class="btn btn-blue">Оставить заявку</button>
+          </form>
+          
+          <small class="form-text">
+            Нажимая кнопку “Оставить заявку” Вы соглашаетесь на обработку персональных данных.
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="successLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      <div class="modal-wrap">
+        <div class="modal-header">
+          <h5 class="modal-title" id="successLabel">
+            Спасибо
+          </h5>
+          <h6 class="modal-subtitle">
+            Мы перезвоним вам в течение 3 минут
+          </h6>
+        </div>
+        <div class="modal-body">
+          <button type="submit" class="btn btn-blue" data-dismiss="modal" aria-label="Close">Хорошо</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- END MODALS-->
+
+    <!-- BEGIN HEADER -->
+    <header id="header" class="header" style="background-image: url('assets/img/header.jpg')">
+  <nav id="main-navigation" class="navigation">
+    <div class="navigation__list-header">
+      <section class="container">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-lg-auto col-10">
+            <a href="/" class="logo">
+              <div class="logo__img">
+                <img src="assets/img/logo.svg" alt="">
+              </div>
+              <div class="logo__text">
+                РЕМ<span class="blue">TV</span>
+                <small>
+                  Ремонт телевизоров
+                  с выездом в Москве
+                </small>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-lg-auto navigation__list-col">
+            <ul class="navigation__list">
+              <li class="navigation__list-item"><a href="#advantages">Преимущества</a></li>
+              <li class="navigation__list-item"><a href="#certs">Сертификаты</a></li>
+              <li class="navigation__list-item"><a href="#contacts">Контакты</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-auto navigation__city-picker-col">
+            <form class="city-picker">
+              <select id="city" class="custom-select">
+                <option selected>Санкт-Петербург</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </form>
+          </div>
+
+          <div class="col-lg-auto col-2 d-flex justify-content-end navigation__contacts-col">
+            <div class="navigation__contacts">
+              <a href="tel:+79006664646" class="navigation__contacts-phone d-lg-none d-xl-inline-block">
+                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.64305 11.841C8.02071 15.8928 9.60583 17.5136 13.5686 19.9446L16.7388 16.7032C18.3578 17.1261 20.4016 17.7065 22.042 17.6997C22.5888 17.6952 23.1334 18.2543 23.1481 18.7884L23.1113 23.8452C23.109 24.4044 22.5601 24.9658 22.0028 24.9999C8.34312 25.0246 0.446548 16.9505 0.00262791 2.95698C-0.0427114 2.41628 0.50634 1.85488 1.05313 1.85257H6.46993C7.06801 1.82894 7.61261 2.38576 7.7424 2.72585C7.60374 4.62234 8.39022 6.93567 8.81329 8.60062L5.64305 11.841Z"/></svg>
+                +7 900 666 46 46</a>
+              </a>
+  
+              <button type="button" class="btn btn-blue-bordered d-none d-lg-inline-block" data-toggle="modal" data-target="#callback">Заказать ремонт</button>
+            </div>
+
+            <div class="navigation__hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    
+    <div class="navigation__mobile">      
+      <section class="container">
+        <ul class="navigation__list">
+          <li class="navigation__list-item"><a href="#advantages">Преимущества</a></li>
+          <li class="navigation__list-item"><a href="#certs">Сертификаты</a></li>
+          <li class="navigation__list-item"><a href="#contacts">Контакты</a></li>
+        </ul>
+
+        <form class="city-picker">
+          <select id="city-dublicate" class="custom-select">
+            <option selected>Санкт-Петербург</option>
+            <option value="One">One</option>
+            <option value="Two">Two</option>
+            <option value="Three">Three</option>
+          </select>
+        </form>
+
+        <div class="navigation__contacts">
+          <a href="tel:+71111111111" class="navigation__contacts-phone">
+            <svg height="32px" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g transform="translate(96 384)"><path d="M-65.224-359.142l-0.147-0.445c-0.353-1.045-1.504-2.135-2.563-2.422l-3.918-1.07c-1.063-0.289-2.578,0.1-3.354,0.877   l-1.418,1.418c-5.153-1.393-9.194-5.434-10.586-10.586l1.418-1.418c0.777-0.777,1.166-2.291,0.878-3.354l-1.068-3.92   c-0.289-1.063-1.381-2.214-2.424-2.563l-0.447-0.15c-1.045-0.348-2.535,0.004-3.313,0.781l-2.12,2.123   c-0.38,0.377-0.621,1.455-0.621,1.459c-0.074,6.734,2.565,13.225,7.33,17.986c4.752,4.752,11.216,7.389,17.931,7.332   c0.035,0,1.145-0.238,1.523-0.615l2.12-2.121C-65.228-356.604-64.875-358.097-65.224-359.142L-65.224-359.142z"/></g></svg>
+            +71111111111</a>
+          </a>
+          <br>
+          <button type="button" class="btn btn-blue" data-toggle="modal" data-target="#callback">Заказать ремонт</button>
+        </div>
+      </section>
+    </div>
+  </nav>
+
+  <div class="header__offer">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-7 col-lg-8">
+          <h2 class="header__offer-title">
+            Ремонт <span class="blue">телевизоров</span>
+            на дому в Москве и области
+          </h2>
+    
+          <div class="header__offer-tagline">
+            С гарантией <b class="bold">до 12 месяцев</b>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="header__offer-img">
+      <img src="assets/img/tv.png" alt="">
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-4 col-lg-5">
+        <div class="header__features">
+          <div class="header__features-item">
+            <div class="header__features-item-icon"><img src="assets/img/icons/jeep.svg" alt=""></div>
+            <div class="header__features-item-title">
+              Бесплатный выезд мастера
+            </div>
+          </div>
+          <div class="header__features-item">
+            <div class="header__features-item-icon"><img src="assets/img/icons/brands.svg" alt=""></div>
+            <div class="header__features-item-title">
+              Ремонтируем любые бренды
+            </div>
+          </div>
+          <div class="header__features-item">
+            <div class="header__features-item-icon"><img src="assets/img/icons/chip.svg" alt=""></div>
+            <div class="header__features-item-title">
+              Свой склад комплектующих
+            </div>
+          </div>
+          <div class="header__features-item">
+            <div class="header__features-item-icon"><img src="assets/img/icons/money.svg" alt=""></div>
+            <div class="header__features-item-title">
+              Стоимость от 500 руб
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-8 col-lg-7">
+        <div class="header__calc">
+          <div class="header__calc-title">
+            Узнайте стоимость ремонта телевизора, ответив всего на <span class="blue">5 вопросов</span>
+          </div>
+
+          <div class="header__calc-subtitle">
+            После теста, получите скидку <span class="blue bold">15% на ремонт</span>
+          </div>
+
+          <a href="#constructor" class="btn btn-blue" data-toggle="modal" data-target="#callback">Рассчитать стоимость</a>
+
+          <div class="header__calc-img">
+            <img src="assets/img/gift.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+    <!-- END HEADER -->
+
+    <!-- BEGIN FEATURES -->
+    <div class="features" id="advantages">
+  <div class="container">
+    <h2 class="block-title">Почему клиенты обращаются именно к нам?</h2>
+
+    <div class="features__list">
+      <div class="features__list-item">
+        <div class="features__list-item-icon"><img src="assets/img/icons/skrew.svg" alt=""></div>
+        <div class="features__list-item-title">Оперативный выезд</div>
+        <div class="features__list-item-desc">
+          Мастер будет на объекте в течение часа с момента оформления заявки.
+        </div>
+      </div>
+      <div class="features__list-item">
+        <div class="features__list-item-icon"><img src="assets/img/icons/handshake.svg" alt=""></div>
+        <div class="features__list-item-title">Уважение к клиенту</div>
+        <div class="features__list-item-desc">
+          Подбираем выгодные условия и предлагаем десятки филиалов по всему городу
+        </div>
+      </div>
+      <div class="features__list-item">
+        <div class="features__list-item-icon"><img src="assets/img/icons/survey.svg" alt=""></div>
+        <div class="features__list-item-title">Опытные мастера</div>
+        <div class="features__list-item-desc">
+          Каждый мастер прошел спецобучение и имеет профильное образование
+        </div>
+      </div>
+      <div class="features__list-item">
+        <div class="features__list-item-icon"><img src="assets/img/icons/monitor.svg" alt=""></div>
+        <div class="features__list-item-title">Чиним телевизоры</div>
+        <div class="features__list-item-desc">
+          Беремся за ремонт любых моделей ТВ независимо от бренда и года выпуска
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- END FEATURES -->
+    
+    <!-- BEGIN CONTACTS-US -->
+    <div class="contact-us" style="background-image: url('assets/img/remote.jpg');">
+  <div class="container">
+    <h2 class="block-title block-title--center block-title--no-line">
+      Свяжитесь с нами
+      <small>Заполните форму и мы вам перезвоним в ближайшее время</small>
+    </h2>
+
+    <div class="contact-us__features">
+      <div class="contact-us__features-item">
+        <div class="contact-us__features-item-icon"><img src="assets/img/icons/check.svg" alt=""></div>
+        <div class="contact-us__features-item-title">Бесплатный выезд</div>
+      </div>
+      <div class="contact-us__features-item">
+        <div class="contact-us__features-item-icon"><img src="assets/img/icons/check.svg" alt=""></div>
+        <div class="contact-us__features-item-title">Выполнение заказа в день обращения</div>
+      </div>
+      <div class="contact-us__features-item">
+        <div class="contact-us__features-item-icon"><img src="assets/img/icons/check.svg" alt=""></div>
+        <div class="contact-us__features-item-title">Гарантия 1 год</div>
+      </div>
+    </div>
+
+    <form class="form-inline">
+      <input type="hidden" name="formname" value="Свяжитесь с нами">
+
+      <div class="form-control-wrap">
+        <input type="text" class="form-control" name="fullname" placeholder="Ваше имя" required>
+      </div>
+      
+      <div class="form-control-wrap">
+        <input type="tel" class="form-control" name="fullname" placeholder="Ваш телефон" required>
+      </div>
+
+      <button class="btn btn-blue" type="submit">Оставить заявку</button>
+
+      <div class="form-text">Нажимая кнопку “Оставить заявку”, я даю согласие на обработку персональных данных</div>
+    </form>
+  </div>
+</div>
+
+    <!-- END CONTACTS-US -->
+
+    <!-- BEGIN STEPS -->
+    <div class="steps">
+  <div class="container">
+    <h2 class="block-title block-title--center block-title--line-bottom">
+      Как заказать ремонт телевизора
+    </h2>
+
+    <div class="steps__list">
+      <div class="steps__list-item">
+        <div class="steps__list-item-number">01</div>
+        <div class="steps__list-item-title">Заявка</div>
+        <div class="steps__list-item-desc">
+          Сначала надо оформить заявку через соответствующее поле на нашем сайте или позвонив по телефону компании.
+        </div>
+      </div>
+
+      <div class="steps__list-item steps__list-item--tv">
+        <img src="assets/img/tv-2.png" alt="">
+      </div>
+      
+      <div class="steps__list-item">
+        <div class="steps__list-item-number">02</div>
+        <div class="steps__list-item-title">Диагностика</div>
+        <div class="steps__list-item-desc">
+          Наш сотрудник отправится на вызов сразу после оформления заявки и проведет качественную диагностику на дому.
+        </div>
+      </div>
+      <div class="steps__list-item">
+        <div class="steps__list-item-number">03</div>
+        <div class="steps__list-item-title">Ремонт</div>
+        <div class="steps__list-item-desc">
+          Затем специалист приступит к ремонту. После выполнения всех назначенных работ, мастер проверит телевизор.
+        </div>
+      </div>
+      <div class="steps__list-item">
+        <div class="steps__list-item-number">04</div>
+        <div class="steps__list-item-title">Гарантия</div>
+        <div class="steps__list-item-desc">
+          После этого сотрудник выдаст вам чеки на использованные детали и предложит гарантийный талон.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- END STEPS -->
+
+    <!-- BEGIN CONSTRUCTOR -->
+    <div class="constructor">
+  <div class="container">
+    <h2 class="block-title block-title--center block-title--no-line">
+      Ответьте всего на <span class="blue"><span id="constructor-header-max">6</span> вопросов</span>
+      <small>и получите <span class="bold">скидку 15%</span></small>
+    </h2>
+
+    <div class="constructor__wrap">
+      <div class="constructor__current">
+        Вопрос <span id="constructor-current">1</span> из <span id="constructor-max">6</span>
+      </div>
+
+      <div class="constructor__question">Какая у вас модель телевизора?</div>
+
+      <form class="constructor__answers-list">
+        <div class="constructor__answers-list-item constructor__answers-list-item--active">
+          <label class="radio radio--img radio--quarter">
+            <input type="radio" name="deviceType" value="samsung">
+            <div class="radio-title">
+              <img src="assets/img/logos/samsung.png" alt="">
+            </div>
+          </label>
+
+          <label class="radio radio--img radio--quarter">
+            <input type="radio" name="deviceType" value="lg">
+            <div class="radio-title">
+              <img src="assets/img/logos/lg.png" alt="">
+            </div>
+          </label>
+
+          <label class="radio radio--img radio--quarter">
+            <input type="radio" name="deviceType" value="sony">
+            <div class="radio-title">
+              <img src="assets/img/logos/sony.png" alt="">
+            </div>
+          </label>
+
+          <label class="radio radio--img radio--quarter">
+            <input type="radio" name="deviceType" value="philips">
+            <div class="radio-title">
+              <img src="assets/img/logos/philips.png" alt="">
+            </div>
+          </label>
+
+          <label class="radio radio--img radio--quarter">
+            <input type="radio" name="deviceType" value="panasonic">
+            <div class="radio-title">
+              <img src="assets/img/logos/panasonic.png" alt="">
+            </div>
+          </label>
+
+          <label class="radio radio--img radio--quarter">
+            <input type="radio" name="deviceType" value="bbk">
+            <div class="radio-title">
+              <img src="assets/img/logos/bbk.png" alt="">
+            </div>
+          </label>
+
+          <label class="radio radio--img radio--quarter">
+            <input type="radio" name="deviceType" value="xiaomi">
+            <div class="radio-title">
+              <img src="assets/img/logos/xiaomi.png" alt="">
+            </div>
+          </label>
+
+          <label class="radio radio--img radio--quarter">
+            <input type="radio" name="deviceType" value="hisense">
+            <div class="radio-title">
+              <img src="assets/img/logos/hisense.png" alt="">
+            </div>
+          </label>
+
+          <label class="radio radio--quarter">
+            <input type="radio" name="deviceType" value="Другая">
+            <div class="radio-title">
+              Другая
+            </div>
+          </label>
+        </div>
+
+        <div class="constructor__answers-list-item">
+          <label class="radio">
+            <input type="radio" name="troubleType" value="Не включается">
+            <div class="radio-title">Не включается</div>
+          </label>
+
+          <label class="radio">
+            <input type="radio" name="troubleType" value="Не переключает каналы">
+            <div class="radio-title">Не переключает каналы</div>
+          </label>
+
+          <label class="radio">
+            <input type="radio" name="troubleType" value="Нет сигнала">
+            <div class="radio-title">Нет сигнала</div>
+          </label>
+
+          <label class="radio">
+            <input type="radio" name="troubleType" value="Не показывает">
+            <div class="radio-title">Не показывает</div>
+          </label>
+
+          <label class="radio">
+            <input type="radio" name="troubleType" value="Нет звука">
+            <div class="radio-title">Нет звука</div>
+          </label>
+
+          <label class="radio">
+            <input type="radio" name="troubleType" value="Другое">
+            <div class="radio-title">Другое</div>
+          </label>
+        </div>
+
+        <div class="constructor__answers-list-item">
+          <span class="form-control-wrap form-control-wrap--no-margin">
+            <input type="text" class="form-control" placeholder="Диагональ" name="diagonal">
+          </span>
+        </div>
+
+        <div class="constructor__answers-list-item">
+          <label class="radio">
+            <input type="radio" name="repairedPreviously" value="Да">
+            <div class="radio-title">Да</div>
+          </label>
+
+          <label class="radio">
+            <input type="radio" name="repairedPreviously" value="Нет">
+            <div class="radio-title">Нет</div>
+          </label>
+        </div>
+
+        <div class="constructor__answers-list-item">
+          <label class="radio">
+            <input type="radio" name="oparatingTime" value="До 2-х лет">
+            <div class="radio-title">До 2-х лет</div>
+          </label>
+
+          <label class="radio">
+            <input type="radio" name="oparatingTime" value="От 2 до 5 лет">
+            <div class="radio-title">От 2 до 5 лет</div>
+          </label>
+
+          <label class="radio">
+            <input type="radio" name="oparatingTime" value="Более 5 лет">
+            <div class="radio-title">Более 5 лет</div>
+          </label>
+        </div>
+
+        <div class="constructor__answers-list-item">
+          <div class="result-form">
+            <div class="form-offer">
+              Заполните номер своего телефона, чтобы мы зарезервировали 
+              <span class="bold">скидку</span> за номером
+            </div>
+            <span class="form-control-wrap">
+              <input name="fullname" type="text" class="form-control" placeholder="Ваше имя" required>
+            </span>
+            
+            <span class="form-control-wrap">
+              <input name="phone" type="tel" class="form-control mask-phone" placeholder="Ваш телефон" required>
+            </span>
+
+            <button type="submit" class="btn btn-blue">Перезвоните мне</button>
+
+            <div class="form-text">
+              Нажимая кнопку “Перезвоните мне”, я даю согласие на обработку персональных данных
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <!-- 
+        '.constructor__thanks' is hidden by default.
+        To show it you must add
+        a classname '.constructor__wrap--thanks' to '.constructor__wrap'.
+
+        OR: Call a method of the Constructor class:
+        Constructor.showThanks()
+
+        This will hide all elements in '.constructor__wrap' exclude '.constructor__thanks'.
+      -->
+      <div class="constructor__thanks">
+        <div class="constructor__thanks-img">
+          <img src="assets/img/thanks.jpg" alt="">
+        </div>
+        <div class="constructor__thanks-content">
+          <div class="constructor__thanks-title">Спасибо</div>
+          <div class="constructor__thanks-desc">
+            Ваша заявка отправлена.<br>
+            Мы перезвоним вам в течение<br>
+            <span class="bold">3-х минут</span>!
+          </div>
+
+          <div class="constructor__thanks-discount">
+            Ваш <span class="bold">бонус</span> за 
+            прохождение теста
+
+            <div class="constructor__thanks-discount-img">
+              <img src="assets/img/discount.png" alt="">
+            </div>
+          </div>
+
+          <button class="btn btn-blue">Готово</button>
+        </div>
+      </div>
+
+      <div class="constructor__footer">
+        <div class="constructor__actions-prev btn btn-blue-bordered">
+          Назад  
+        </div>
+
+        <div class="constructor__progress">
+          <!-- 
+            Here will be added node elements by JS.
+          -->
+
+        </div>
+
+        <div class="constructor__actions-next">
+          Следующий шаг
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- END CONSTRUCTOR -->
+
+    <!-- BEGIN FAQ -->
+    <div class="faq" style="background-image: url('assets/img/faq.jpg');">
+  <div class="container">
+    <h2 class="block-title block-title--line-bottom">Часто задаваемые вопроcы</h2>
+
+    <div class="accordion" id="faq-acc">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <div class="mb-0">
+            <div class="btn btn-link btn-block text-left" role="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true">
+              <div class="faq__item">
+                <div class="faq__item-number">
+                  1
+                </div>
+
+                <div class="faq__item-title">
+                  Работаете ли вы в выходные?
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faq-acc">
+          <div class="card-body">
+            Да. Мы знаем, что многим клиентам совсем неудобно ждать мастера в будние дни. Поэтому предлагаем свои услуги даже в выходные. Приедем в любое удобное время.  
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <div class="mb-0">
+            <div class="btn btn-link btn-block text-left collapsed" role="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true">
+              <div class="faq__item">
+                <div class="faq__item-number">
+                  2
+                </div>
+
+                <div class="faq__item-title">
+                  В какие сроки выполняется ремонт телевизора? 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faq-acc">
+          <div class="card-body">
+            Все зависит от сложности ремонта. 90% работ выполняем в течение часа после начала ремонта. В крайнем случае забираем телевизор в мастерскую и чиним его до 3-х дней.   
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <div class="mb-0">
+            <div class="btn btn-link btn-block text-left collapsed" role="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true">
+              <div class="faq__item">
+                <div class="faq__item-number">
+                  3
+                </div>
+                <div class="faq__item-title">
+                  В чем ваше отличие от других компаний? 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faq-acc">
+          <div class="card-body">
+            Мы ставим во главу угла клиента и его потребности. Поэтому предлагаем выгодные цены, всегда приезжаем в срок, чиним на совесть и используем оригинальные запчасти.  
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" id="headingFour">
+          <div class="mb-0">
+            <div class="btn btn-link btn-block text-left collapsed" role="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true">
+              <div class="faq__item">
+                <div class="faq__item-number">
+                  4
+                </div>
+
+                <div class="faq__item-title">
+                  Как долго надо ждать мастера?
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faq-acc">
+          <div class="card-body">
+            Мы стараемся отправлять мастеров на выезд в течение нескольких минут после оформления заявки. Но если свободных специалистов нет, этот срок может продлиться до часа.  
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+    <!-- END FAQ -->
+
+    <!-- BEGIN CERTS -->
+    <section class="certs" id="certs">
+  <section class="container">
+    <h2 class="block-title block-title--line-bottom block-title--center">Сертификаты</h2>
+
+    <div class="certs__container">
+      <div id="certs-slider" class="swiper-container">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <div class="certs__item">
+              <div class="certs__item-img">
+                <img src="assets/img/certs/1.jpg" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="certs__item">
+              <div class="certs__item-img">
+                <img src="assets/img/certs/2.jpg" alt="">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="swiper-button-prev-unique">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 492.004 492.004" style="enable-background:new 0 0 492.004 492.004;" xml:space="preserve"><g><g><path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+      </div>
+      <div class="swiper-button-next-unique">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 492.004 492.004" style="enable-background:new 0 0 492.004 492.004;" xml:space="preserve"><g><g><path d="M382.678,226.804L163.73,7.86C158.666,2.792,151.906,0,144.698,0s-13.968,2.792-19.032,7.86l-16.124,16.12c-10.492,10.504-10.492,27.576,0,38.064L293.398,245.9l-184.06,184.06c-5.064,5.068-7.86,11.824-7.86,19.028c0,7.212,2.796,13.968,7.86,19.04l16.124,16.116c5.068,5.068,11.824,7.86,19.032,7.86s13.968-2.792,19.032-7.86L382.678,265c5.076-5.084,7.864-11.872,7.848-19.088C390.542,238.668,387.754,231.884,382.678,226.804z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+      </div>
+        
+    </div>
+  </section>
+</section>
+
+    <!-- END CERTS -->
+
+    <!-- BEGIN CONTACTS -->
+    <div class="contacts" id="contacts">
+  <div class="contacts__tv">
+    <img src="assets/img/tv-3.png" alt="">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="block-title block-title--line-bottom">Контакты</h2>
+
+        <div class="contacts__item">
+          <div class="contacts__item-title">
+            Позвоните нам
+          </div>
+          <a href="tel:+79006664646" class="contacts__item-desc">+7 900 666 46 46</a>
+          <div class="contacts__item-additional">Работаем без выходных</div>
+        </div>
+
+        <div class="contacts__item">
+          <div class="contacts__item-title">Консультации по телефону</div>
+          <div class="contacts__item-desc">Круглосуточно</div>
+        </div>
+        
+        <div class="contacts__item">
+          <div class="contacts__item-title">Выезд на дом</div>
+          <div class="contacts__item-desc">Пн-Вс: с 10:00 до 22:00</div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <form>
+          <div class="form-title">Остались вопросы?</div>
+          <div class="form-offer">Заполните форму и мы проконсультируем вас по любому вопросу!</div>
+
+          <div class="form-control-wrap">
+            <input type="text" class="form-control" name="fullname" placeholder="Ваше имя" required>
+          </div>
+          
+          <div class="form-control-wrap mb-4">
+            <input type="text" class="form-control" name="fullname" placeholder="Ваш телефон" required>
+          </div>
+
+          <button type="submit" class="btn btn-white">Перезвоните мне</button>
+
+          <div class="form-text">
+            Нажимая кнопку “Перезвоните мне”, я даю согласие на обработку персональных данных
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- END CONTACTS -->
+
+    <!-- BEGIN FOOTER -->
+    <section class="footer">
+  <section class="container">
+    <nav class="navigation navigation--static">
+      <div class="row align-items-center justify-content-between">
+        <div class="col-xl-4 col-lg-5 col-md-5">
+          <a href="/" class="logo">
+            <div class="logo__img">
+              <img src="assets/img/logo.svg" alt="">
+            </div>
+            <div class="logo__text">
+              РЕМ<span class="blue">TV</span>
+              <small>
+                Ремонт телевизоров
+                с выездом в Москве
+              </small>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-auto col-md-5 text-right text-lg-left">
+          <a href="#" class="footer__policy">Политика конфиденциальности</a>
+        </div>
+        <div class="col-md-auto col-9">
+          <p class="footer__offer">
+            Цены указанные на сайте не являются публичной офертой
+          </p>
+        </div>
+        <div class="col-md-auto col-3">
+          <a href="#header" class="footer__to-top">
+            <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.18094 0.165441C8.93125 -0.0628618 8.53531 -0.0538616 8.2975 0.186142C8.05937 0.426145 8.06938 0.80595 8.31906 1.03455L13.1134 5.39991H0.625C0.28 5.39991 0 5.66872 0 5.99992C0 6.33112 0.28 6.59993 0.625 6.59993H13.0934L8.31906 10.9656C8.06906 11.1942 8.05937 11.574 8.2975 11.814C8.42031 11.9376 8.585 12 8.75 12C8.905 12 9.06 11.9451 9.18094 11.8344L14.6337 6.84833C14.87 6.62183 15 6.32062 15 5.99992C15 5.67922 14.87 5.37801 14.6228 5.14131L9.18094 0.165441Z"/></svg>
+          </a>
+        </div>
+      </div> 
+    </nav>
+  </section>
+</section>
+
+    <!-- END FOOTER -->
+  <script src="./assets/js/vendor.script.js"></script><script src="./assets/js/script.js"></script></body>
+</html>
